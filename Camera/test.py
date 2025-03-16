@@ -2,11 +2,8 @@
 
 import cv2 as cv
 
-camera = cv.VideoCapture(0)
-
-# Get image shape
-# f_height = int(camera.get(cv.CAP_PROP_FRAME_HEIGHT))
-# f_width = int(camera.get(cv.CAP_PROP_FRAME_WIDTH))
+# camera = cv.VideoCapture(0)
+camera = cv.VideoCapture('nvarguscamerasrc ! video/x-raw(memory:NVMM), width=1280, height=720, format=(string)NV12, framerate=(fraction)15/1 ! nvvidconv ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink', cv.CAP_GSTREAMER)
 
 while True:
     ret, frame = camera.read()
