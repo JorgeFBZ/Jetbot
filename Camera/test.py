@@ -9,6 +9,7 @@ camera = cv.VideoCapture(0)
 # f_width = int(camera.get(cv.CAP_PROP_FRAME_WIDTH))
 
 while True:
+    ret, frame = camera.read()
     cv.imshow("Camera", frame)
     if cv.waitKey(1) == ord("q"):
         break
